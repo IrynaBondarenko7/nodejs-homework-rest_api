@@ -9,5 +9,6 @@ const schemas = require("../../schemas/users");
 const router = express.Router();
 
 router.post("/register", validateBody(schemas.registerSchema), ctrl.regirter);
+router.post("/login", validateBody(schemas.loginSchema), ctrl.login);
 
 module.exports = router;
