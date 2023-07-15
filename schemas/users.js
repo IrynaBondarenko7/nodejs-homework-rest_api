@@ -14,7 +14,12 @@ const loginSchema = Joi.object({
   password: Joi.string().min(7).required(),
 });
 
+const updateSubscription = Joi.object({
+  subscription: Joi.string().valid("starter", "pro", "business").required(),
+});
+
 module.exports = {
   registerSchema,
   loginSchema,
+  updateSubscription,
 };
