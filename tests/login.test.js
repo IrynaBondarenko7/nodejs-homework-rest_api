@@ -15,13 +15,18 @@ describe("login", () => {
 
     await User.deleteMany();
 
-    const hashPassword = await bcrypt.hash("1234567", 10);
-    await User.create({
+    const testPassword = "1234567";
+
+    const hashPassword = await bcrypt.hash(testPassword, 10);
+
+    const testUser = {
       name: "Iryna Karolina",
       email: "karolina@gmail.com",
       password: hashPassword,
       subscription: "starter",
-    });
+    };
+
+    await User.create(testUser);
   });
 
   afterAll(async () => {
